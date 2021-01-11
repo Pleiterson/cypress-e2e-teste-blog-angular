@@ -138,6 +138,7 @@ describe('Conduit Cadastro', () => {
 
 - Execute o comando abaixo para executar este arquivo criado
 <pre>npx cypress run --spec cypress/integration/cadastro.spec.js</pre>
+<br>
 
 2. Login
 - Support Comands: abra o arquivo "index.js" no caminho "cypress/support" e adicione o código abaixo no final do que já existe.
@@ -169,6 +170,7 @@ describe('Conduit Login', () => {
 
 - Execute o comando abaixo para executar este arquivo criado
 <pre>npx cypress run --spec cypress/integration/login.spec.js</pre>
+<br>
 
 3. Perfil: crie o arquivo "perfil.spec.js" no caminho "cypress/integration" e adicione o código abaixo
 <pre>
@@ -187,6 +189,7 @@ describe('Profile', () => {
 
 - Execute o comando abaixo para executar este arquivo criado
 <pre>npx cypress run --spec cypress/integration/perfil.spec.js</pre>
+<br>
 
 4. Feeds: crie o arquivo "feeds.spec.js" no caminho "cypress/integration" e adicione o código abaixo
 <pre>
@@ -201,6 +204,7 @@ describe('Conduit Feed', () => {
 
 - Execute o comando abaixo para executar este arquivo criado
 <pre>npx cypress run --spec cypress/integration/feeds.spec.js</pre>
+<br>
 
 5. Paginação: crie o arquivo "pagination.spec.js" no caminho "cypress/integration" e adicione o código abaixo
 <pre>
@@ -217,6 +221,7 @@ describe('Paginação', () => {
 
 - Execute o comando abaixo para executar este arquivo criado
 <pre>npx cypress run --spec cypress/integration/pagination.spec.js</pre>
+<br>
 
 6. Post: crie o arquivo "post.spec.js" no caminho "cypress/integration" e adicione o código abaixo
 <pre>
@@ -250,6 +255,7 @@ describe('Post', () => {
 
 - Execute o comando abaixo para executar este arquivo criado
 <pre>npx cypress run --spec cypress/integration/post.spec.js</pre>
+<br>
 
 7. Tags: crie o arquivo "tags.spec.js" no caminho "cypress/integration" e adicione o código abaixo
 <pre>
@@ -266,6 +272,7 @@ describe('Paginação', () => {
 
 - Execute o comando abaixo para executar este arquivo criado
 <pre>npx cypress run --spec cypress/integration/tags.spec.js</pre>
+<br>
 
 8. Comentários: crie o arquivo "comentarios.spec.js" no caminho "cypress/integration" e adicione o código abaixo
 <pre>
@@ -282,6 +289,7 @@ describe('Comentarios', () => {
 
 - Execute o comando abaixo para executar este arquivo criado
 <pre>npx cypress run --spec cypress/integration/comentarios.spec.js</pre>
+<br>
 
 9. Seguir: crie o arquivo "seguir.spec.js" no caminho "cypress/integration" e adicione o código abaixo
 <pre>
@@ -302,6 +310,7 @@ describe('Seguir', () => {
 
 - Execute o comando abaixo para executar este arquivo criado
 <pre>npx cypress run --spec cypress/integration/seguir.spec.js</pre>
+<br>
 
 10. Logout: crie o arquivo "logout.spec.js" no caminho "cypress/integration" e adicione o código abaixo
 <pre>
@@ -405,7 +414,6 @@ npm install
 npm dev
 npm run cypress:open
 ```
-<br>
 
 - [Cheatsheet Mocha](https://devhints.io/mocha)
 - [Cheatsheet Chai](https://devhints.io/chai)
