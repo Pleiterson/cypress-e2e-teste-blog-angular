@@ -39,6 +39,7 @@ npm run start</pre>
 
 - Depois no navegador de internet digite: http://localhost:4200/
 <br>
+
 - Adicionando o Cypress...
 - Abra outro terminal. Na pasta/angular-realworld-example-app/ execute:
 
@@ -63,6 +64,7 @@ npm install cypress --save-dev --verbose</pre>
 - E já vem com /examples/ dos principais comandos Cypress.
 <pre>npx cypress open</pre>
 <br>
+
 - Primeiro teste...
 - Crie um arquivo no caminho "cypress/integrations/examples" com o nome "exemplo.spec.js", e dentro dele adicione o código abaixo
 <pre>
@@ -71,7 +73,7 @@ describe('Primeiro Teste', () => {
     cy.visit('https://example.cypress.io')
     expect(true).to.equal(true)
   })
-})<pre>
+})</pre>
 
 describe and it come from Mocha<br>
 expect comes from Chai
@@ -86,6 +88,7 @@ expect comes from Chai
 - Para abrir a interface do Cypress Test Runner:
 <pre>npx cypress open</pre>
 <br>
+
 - Configuração JSON
 - Abra o arquivo cypress.json e adicione o código abaixo
 <pre>
@@ -97,7 +100,6 @@ expect comes from Chai
   "viewportWidth": 500,
   "retries": 3
 }</pre>
-
 <br>
 
 - Roteiro dos testes...
@@ -112,11 +114,13 @@ expect comes from Chai
 9. Seguir
 10. Logout
 <br>
+
 - Cypress Recorder
 - [Extensão](https://chrome.google.com/webstore/detail/cypress-recorder/glcapdcacdfkokcmicllhcjigeodacab) para o Chrome capaz de gravar um roteiro base. Recomendado para capturar os seletores no DOM.
 <br>
+
 1. Cadastro: crie o arquivo "cadastro.spec.js" no caminho "cypress/integration" e adicione o código abaixo
-```
+<pre>
 describe('Conduit Cadastro', () => {
     const usuario = 'usuario' + (new Date()).getTime()
     const senha = 'senha' + (new Date()).getTime()
@@ -130,25 +134,24 @@ describe('Conduit Cadastro', () => {
         cy.contains('.nav-item:nth-child(4) > .nav-link', usuario)
             .should('be.visible')
     })
-})
-```
+})</pre>
+
 - Execute o comando abaixo para executar este arquivo criado
-```
-npx cypress run --spec cypress/integration/cadastro.spec.js
-```
+<pre>npx cypress run --spec cypress/integration/cadastro.spec.js</pre>
+
 2. Login
 - Support Comands: abra o arquivo "index.js" no caminho "cypress/support" e adicione o código abaixo no final do que já existe.
-```
+<pre>
 Cypress.Commands.add('login', (username, password) => {
   cy.visit('/login')
   cy.url().should('include', '/login')
   cy.get('[formcontrolname=email]').type(username)
   cy.get('[formcontrolname=password]').type(password)
   cy.get('.btn').click()
-})
-```
+})</pre>
+
 - Crie o arquivo "login.spec.js" no caminho "cypress/integration" e adicione o código abaixo
-```
+<pre>
 describe('Conduit Login', () => {
     it('Login sucesso', () => {
         cy.login('testecypress@testecypress.com', 'testecypress')
@@ -162,14 +165,13 @@ describe('Conduit Login', () => {
         cy.get('.error-messages > li')
             .should('contain', 'email or password is invalid')
     })
-})
-```
+})</pre>
+
 - Execute o comando abaixo para executar este arquivo criado
-```
-npx cypress run --spec cypress/integration/login.spec.js
-```
+<pre>npx cypress run --spec cypress/integration/login.spec.js</pre>
+
 3. Perfil: crie o arquivo "perfil.spec.js" no caminho "cypress/integration" e adicione o código abaixo
-```
+<pre>
 describe('Profile', () => {
     it('Editar Perfil', () => {
         cy.login('testecypress@testecypress.com', 'testecypress')
@@ -181,14 +183,13 @@ describe('Profile', () => {
         cy.get('[formcontrolname="password"]').type('testecypress')
         cy.contains('Update Settings').click()
     })
-})
-```
+})</pre>
+
 - Execute o comando abaixo para executar este arquivo criado
-```
-npx cypress run --spec cypress/integration/perfil.spec.js
-```
+<pre>npx cypress run --spec cypress/integration/perfil.spec.js</pre>
+
 4. Feeds: crie o arquivo "feeds.spec.js" no caminho "cypress/integration" e adicione o código abaixo
-```
+<pre>
 describe('Conduit Feed', () => {
     it('Ver Feeds', () => {
         cy.login('testecypress@testecypress.com', 'testecypress')
@@ -196,14 +197,13 @@ describe('Conduit Feed', () => {
         cy.get('.nav-pills > .nav-item:nth-child(2) > .nav-link').click()
         cy.get('app-article-preview:nth-child(1) .btn').click()
     })
-})
-```
+})</pre>
+
 - Execute o comando abaixo para executar este arquivo criado
-```
-npx cypress run --spec cypress/integration/feeds.spec.js
-```
+<pre>npx cypress run --spec cypress/integration/feeds.spec.js</pre>
+
 5. Paginação: crie o arquivo "pagination.spec.js" no caminho "cypress/integration" e adicione o código abaixo
-```
+<pre>
 describe('Paginação', () => {
     it('Paginar', () => {
         cy.visit('/')
@@ -213,14 +213,13 @@ describe('Paginação', () => {
         cy.get('.page-item:nth-child(3) > .page-link').click()
         cy.get('.page-item.active > a').contains('3')
     })
-})
-```
+})</pre>
+
 - Execute o comando abaixo para executar este arquivo criado
-```
-npx cypress run --spec cypress/integration/pagination.spec.js
-```
+<pre>npx cypress run --spec cypress/integration/pagination.spec.js</pre>
+
 6. Post: crie o arquivo "post.spec.js" no caminho "cypress/integration" e adicione o código abaixo
-```
+<pre>
 describe('Post', () => {
     beforeEach(() => {
         cy.login('testecypress@testecypress.com', 'testecypress')
@@ -247,14 +246,13 @@ describe('Post', () => {
         cy.contains('Publish Article').click()
         cy.contains('Economia')
     })
-})
-```
+})</pre>
+
 - Execute o comando abaixo para executar este arquivo criado
-```
-npx cypress run --spec cypress/integration/post.spec.js
-```
+<pre>npx cypress run --spec cypress/integration/post.spec.js</pre>
+
 7. Tags: crie o arquivo "tags.spec.js" no caminho "cypress/integration" e adicione o código abaixo
-```
+<pre>
 describe('Paginação', () => {
     it('Paginar', () => {
         cy.visit('/')
@@ -264,14 +262,13 @@ describe('Paginação', () => {
         cy.get('.page-item:nth-child(3) > .page-link').click()
         cy.get('.page-item.active > a').contains('3')
     })
-})
-```
+})</pre>
+
 - Execute o comando abaixo para executar este arquivo criado
-```
-npx cypress run --spec cypress/integration/tags.spec.js
-```
+<pre>npx cypress run --spec cypress/integration/tags.spec.js</pre>
+
 8. Comentários: crie o arquivo "comentarios.spec.js" no caminho "cypress/integration" e adicione o código abaixo
-```
+<pre>
 describe('Comentarios', () => {
     it('Escrever', () => {
         cy.login('testecypress@testecypress.com', 'testecypress')
@@ -281,14 +278,13 @@ describe('Comentarios', () => {
         cy.get('.btn-primary').click()
         cy.contains('Sensacional!')
     })
-})
-```
+})</pre>
+
 - Execute o comando abaixo para executar este arquivo criado
-```
-npx cypress run --spec cypress/integration/comentarios.spec.js
-```
+<pre>npx cypress run --spec cypress/integration/comentarios.spec.js</pre>
+
 9. Seguir: crie o arquivo "seguir.spec.js" no caminho "cypress/integration" e adicione o código abaixo
-```
+<pre>
 describe('Seguir', () => {
     it('Seguir Usuário', () => {
         const usuario = 'usuario'+(new Date()).getTime();
@@ -302,14 +298,13 @@ describe('Seguir', () => {
         cy.visit('/profile/testecypress')
         cy.contains('Folow').click()
     })
-})
-```
+})</pre>
+
 - Execute o comando abaixo para executar este arquivo criado
-```
-npx cypress run --spec cypress/integration/seguir.spec.js
-```
+<pre>npx cypress run --spec cypress/integration/seguir.spec.js</pre>
+
 10. Logout: crie o arquivo "logout.spec.js" no caminho "cypress/integration" e adicione o código abaixo
-```
+<pre>
 describe('Logout', () => {
     it('Logout via Perfil', () => {
         cy.login('testecypress@testecypress.com', 'testecypress')
@@ -317,12 +312,10 @@ describe('Logout', () => {
         cy.url().should('include', '/settings')
         cy.get('.btn-outline-danger').click()
     })
-})
-```
+})</pre>
+
 - Execute o comando abaixo para executar este arquivo criado
-```
-npx cypress run --spec cypress/integration/logout.spec.js
-```
+<pre>npx cypress run --spec cypress/integration/logout.spec.js</pre>
 <br>
 
 - Fixture: Data-Driven Tests
