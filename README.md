@@ -28,75 +28,67 @@ Neste projeto você terá o desafio de construir um teste E2E com Cypress para u
 
 - Primeiro rode os comando abaixo para baixar um projeto para a execução dos testes:
 
-```
+<pre>
 git clone https://github.com/gothinkster/angular-realworld-example-app
 
 cd angular-realworld-example-app
 
 npm install
 
-npm run start
-```
+npm run start</pre>
+
 - Depois no navegador de internet digite: http://localhost:4200/
 <br>
 - Adicionando o Cypress...
 - Abra outro terminal. Na pasta/angular-realworld-example-app/ execute:
-```
+
+<pre>
 npm install cypress --save-dev
 
-npx cypress -v
-```
+npx cypress -v</pre>
+
 - Caso tenha problemas com Proxy ou Firewall, baixe o [binário](https://download.cypress.io/desktop) e configure a variável de ambiente antes de instalar:
 
-```
+<pre>
 set CYPRESS_INSTALL_BINARY=C:\cypress.zip
 
-npm install cypress --save-dev --verbose
-```
+npm install cypress --save-dev --verbose</pre>
+
 - Remova o pacote:
-```
-npm uninstall protactor --save-dev
-```
+<pre>npm uninstall protactor --save-dev</pre>
+
 - Exclua a pasta /e2e/
 - Do package.json, remova a linha: "e2e": "ng e2e"
 - O comando "cypress open", além de abrir o Cypress Test Runner, cria a pasta inicial cypress e o arquivo de configuração /cypress.json
 - E já vem com /examples/ dos principais comandos Cypress.
-```
-npx cypress open
-```
+<pre>npx cypress open</pre>
 <br>
 - Primeiro teste...
 - Crie um arquivo no caminho "cypress/integrations/examples" com o nome "exemplo.spec.js", e dentro dele adicione o código abaixo
-
-```
+<pre>
 describe('Primeiro Teste', () => {
   it('Exemplos Cypress', () => {
     cy.visit('https://example.cypress.io')
     expect(true).to.equal(true)
   })
-})
-```
+})<pre>
+
 describe and it come from Mocha<br>
 expect comes from Chai
 
 - Rodando os testes
 - Para executar todos os testes da pasta /cypress/integration/:
-```
-npx cypress run
-```
+<pre>npx cypress run</pre>
+
 - Para executar somente um roteiro:
-```
-npx cypress run --spec "cypress/integration/examples/exemplo.spec.js"
-```
+<pre>npx cypress run --spec "cypress/integration/examples/exemplo.spec.js"</pre>
+
 - Para abrir a interface do Cypress Test Runner:
-```
-npx cypress open
-```
+<pre>npx cypress open</pre>
 <br>
 - Configuração JSON
 - Abra o arquivo cypress.json e adicione o código abaixo
-
-```
+<pre>
 {
   "baseUrl": "http://localhost:4200",
   "pageLoadTimeout": 30000,
@@ -104,8 +96,8 @@ npx cypress open
   "viewportHeight": 800,
   "viewportWidth": 500,
   "retries": 3
-}
-```
+}</pre>
+
 <br>
 
 - Roteiro dos testes...
